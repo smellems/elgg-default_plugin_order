@@ -11,7 +11,8 @@ function elgg_default_plugin_order(){
 
 function elgg_default_plugin_order_load_config(){
 	$config_settings = array();
-	$config_file = dirname(__FILE__)."/config.ini";
+	$config_file = elgg_get_config('path')."plugin_config.ini";
+	error_log($config_file);
 	if(file_exists($config_file)){
 	   //TODO Add sussport for sections to handle diferent environments
 	   $config_settings = parse_ini_file($config_file);
