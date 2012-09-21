@@ -22,7 +22,9 @@ function elgg_default_plugin_order_load_config(){
 		set_plugin_setting('config',$config_hash,'elgg_default_plugin_order');
 		return $config_settings;
 	}
-	return array();	
+	return $config_settings;
+	// TODO Verify problem with cache handling
+	//return array();	
 }
 function elgg_default_plugin_order_reorder(){
 	$final_order = array();
