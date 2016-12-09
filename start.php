@@ -61,7 +61,6 @@ function elgg_default_plugin_order_set_status(){
 	}
 }
 
-
-register_elgg_event_handler('init','system','elgg_default_plugin_order');
+elgg_register_event_handler('init','system','elgg_default_plugin_order');
 
 ?>
