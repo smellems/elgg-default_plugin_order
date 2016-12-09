@@ -10,7 +10,7 @@
 	<license>MIT</license>
 	<website>http://github.com/lowfill/elgg_default_plugin_order</website>
 	<requires>
-		<type>elgg_version</type>
-		<version>2010030101</version>
+		<type>elgg_release</type>
+		<version>1.12</version>
 	</requires>
 </plugin_manifest>
