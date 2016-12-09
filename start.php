@@ -3,7 +3,7 @@
 function elgg_default_plugin_order(){
 	elgg_default_plugin_order_reorder();
 	elgg_default_plugin_order_set_status();
-	if(is_plugin_enabled('elgg_default_plugin_order')){
+	if(elgg_is_active_plugin('elgg_default_plugin_order')){
 		disable_plugin('elgg_default_plugin_order');
 	}
 
@@ -17,9 +17,9 @@ function elgg_default_plugin_order_load_config(){
 	   $config_settings = parse_ini_file($config_file);
 	}
 	$config_hash = md5(serialize($config_settings));
-	$old_config = get_plugin_setting('config','elgg_default_plugin_order');
+	$old_config = elgg_get_plugin_setting('config','elgg_default_plugin_order');
 	if($old_config != $config_hash){
-		set_plugin_setting('config',$config_hash,'elgg_default_plugin_order');
+		elgg_set_plugin_setting('config',$config_hash,'elgg_default_plugin_order');
 		return $config_settings;
 	}
 	return $config_settings;
@@ -46,12 +46,12 @@ function elgg_default_plugin_order_set_status(){
 		foreach($config_settings as $plugin => $status){
 			switch($status){
 				case 'enabled':
-					if(!is_plugin_enabled($plugin)){
+					if(!elgg_is_active_plugin($plugin)){
 						enable_plugin($plugin);
 					}
 				break;
 				case 'disabled':
-					if(is_plugin_enabled($plugin)){
+					if(elgg_is_active_plugin($plugin)){
 						disable_plugin($plugin);
 					}
 				break;
